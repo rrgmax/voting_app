@@ -6,6 +6,6 @@ class Question(models.Model):
     pub_date = models.DateTimeField('Published date')
 
 class Choice(models.Model):
-    question = models.ForeignKey(Question, no_delete = models.CASCADE)
+    question = models.ForeignKey(Question, on_delete = models.CASCADE)
     chioce_text = models.CharField(max_length = 200)
     votes = models.IntegerField(default = 0)
