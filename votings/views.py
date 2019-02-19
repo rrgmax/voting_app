@@ -4,7 +4,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-    return HttpResponse("Wow! Writing First Web App In Django!") 
+    question_list = Question.objects.all()
+    output = '-----'. join([s.question_text for s in question_list])
+    return HttpResponse(output) 
 
 def detail(request, question_id):
     return HttpResponse("You're looking at question %s." % question_id)
