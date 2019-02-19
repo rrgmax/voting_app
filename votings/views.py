@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
-from django.url import reverse
+from django.urls import reverse
 
 # Create your views here.
 from. models import Question
@@ -27,7 +27,7 @@ def vote(request, question_id):
             'question': question,
             'error_message': "You didn't select a choice.",
         })
-    else
+    else:
         selected_choice.votes += 1
         selected_choice.save()
         return HttpResponseRedirect(reverse('votings:results', args=(question.id,)))
