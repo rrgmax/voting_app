@@ -1,12 +1,12 @@
 from django.shortcuts import render
 
 # Create your views here.
-from django.http import HttpResponse
+from. models import Question
 
 def index(request):
     question_list = Question.objects.all()
-    output = '-----'. join([s.question_text for s in question_list])
-    return HttpResponse(output) 
+    context = {'question_list': question_list}
+    return render(request, 'votings/index.html', context)
 
 def detail(request, question_id):
     return HttpResponse("You're looking at question %s." % question_id)
